@@ -22,7 +22,9 @@ function formButton() {
 }
 
 function newTodo(item) {
+
   var item = document.getElementById("item").value
+  document.getElementById("item").value = ""
   listItems = document.getElementById("todo-list")
   newItem = document.createElement("li")
   newItem.innerText = item
