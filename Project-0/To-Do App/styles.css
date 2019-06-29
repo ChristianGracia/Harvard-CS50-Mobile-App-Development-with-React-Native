@@ -54,6 +54,8 @@ ul {
 
 .todo-checkbox {
   margin: 10px;
+  width: 10px;
+  height: 10px;
 }
 
 .todo-container {

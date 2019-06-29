@@ -26,6 +26,13 @@ function formButton() {
   inputAdd.setAttribute("name", "item")
   document.getElementsByClassName("container")[0].appendChild(inputAdd)
 
+  //disable button click with 0 input
+
+  var requireInput = document.getElementsByClassName('button')
+  // requireInput.setAttribute("required", "");
+  requireInput.required = true;
+
+
 
 }
 
@@ -55,7 +62,10 @@ function newTodo(item) {
   document.getElementById('unchecked-count').textContent = uncheckedCount
 
   //add button
-  var buttonAdd = document.createElement('button')
+  var buttonAdd = document.createElement('input')
+  buttonAdd.setAttribute("type", "checkbox")
+  buttonAdd.setAttribute("checked", "unchecked")
+  buttonAdd.setAttribute("class", "todo-checkbox")
   listItems.appendChild(buttonAdd)
 
 }
