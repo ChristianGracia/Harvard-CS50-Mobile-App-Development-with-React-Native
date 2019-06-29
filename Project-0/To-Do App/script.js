@@ -6,13 +6,15 @@ const classNames = {
 }
 
 
-const list = document.getElementById('todo-list')
-const itemCountSpan = document.getElementById('item-count')
-const uncheckedCountSpan = document.getElementById('unchecked-count')
+// const list = document.getElementById('todo-list')
+// const itemCountSpan = document.getElementById('item-count')
+// const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+//init trackers
 var itemCount = 0
 var uncheckedCount = 0
 
+//create form button through DOM manipulation
 window.onload = formButton()
 
 function formButton() {
@@ -32,8 +34,12 @@ function newTodo(item) {
   var item = document.getElementById("item").value
   document.getElementById("item").value = ""
   listItems = document.getElementById("todo-list")
+
+  //create li element
   newItem = document.createElement("li")
   newItem.setAttribute("class", "todo-text")
+
+  //add list item to li element
   newItem.innerText = item
   listItems.appendChild(newItem)
   console.log(item)
@@ -44,8 +50,12 @@ function newTodo(item) {
   document.getElementById('item-count').textContent = itemCount
 
   //update todo list unchecked item count
-  uncheckedCount ++
+  uncheckedCount++
   console.log("unchecked: " + uncheckedCount)
   document.getElementById('unchecked-count').textContent = uncheckedCount
+
+  //add button
+  var buttonAdd = document.createElement('button')
+  listItems.appendChild(buttonAdd)
 
 }
