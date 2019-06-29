@@ -5,6 +5,7 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
+
 const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
@@ -27,6 +28,7 @@ function newTodo(item) {
   document.getElementById("item").value = ""
   listItems = document.getElementById("todo-list")
   newItem = document.createElement("li")
+  newItem.setAttribute("class", "todo-text")
   newItem.innerText = item
   listItems.appendChild(newItem)
   console.log(item)

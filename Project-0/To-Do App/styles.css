@@ -64,3 +64,10 @@ ul {
 .todo-container:first-of-type {
   border-top: 1px solid #333;
 }
+.todo-text {
+  font-size: 30px;
+  color: blue;
+}
+.title {
+  color: blue;
+}
