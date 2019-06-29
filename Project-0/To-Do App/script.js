@@ -13,14 +13,16 @@ window.onload = formButton()
 
 function formButton() {
 
-  var formAdd = document.createElement("form")
-  var inputAdd = document.createElement("input")
-  formAdd.appendChild(inputAdd)
+  var labelAdd = document.createElement("label")
+  labelAdd.setAttribute("class", "label")
+  document.getElementsByClassName("label").textContent ="Todo:"
 
-  formAdd.setAttribute("type", "submit")
-  // submitButton.setAttribute("type", "submit")
-  // formAdd.appendChild(submitButton)
-  // grabElement.parentNode.appendChild(formAdd)
-  document.getElementsByClassName("container")[0].appendChild(formAdd)
+  var inputAdd = document.createElement("input")
+  inputAdd.setAttribute("type", "text")
+  inputAdd.setAttribute("id", "item")
+  inputAdd.setAttribute("name", "item")
+
+  document.getElementsByClassName("container")[0].appendChild(labelAdd)
+  document.getElementsByClassName("container")[0].appendChild(inputAdd)
 
 }
