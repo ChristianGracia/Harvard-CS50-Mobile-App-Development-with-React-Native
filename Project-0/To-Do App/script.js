@@ -10,6 +10,8 @@ const list = document.getElementById('todo-list')
 const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
+var itemCount = 0
+
 window.onload = formButton()
 
 function formButton() {
@@ -18,8 +20,10 @@ function formButton() {
   inputAdd.setAttribute("type", "text")
   inputAdd.setAttribute("id", "item")
   inputAdd.setAttribute("placeholder", "to-do item")
-  inputAdd.setAttribute("id", "item")
+  inputAdd.setAttribute("name", "item")
   document.getElementsByClassName("container")[0].appendChild(inputAdd)
+
+
 }
 
 function newTodo(item) {
@@ -32,4 +36,10 @@ function newTodo(item) {
   newItem.innerText = item
   listItems.appendChild(newItem)
   console.log(item)
+
+  //update todo list item count
+
+  itemCount++
+  console.log("item count: " + itemCount)
+  document.getElementById('item-count').textContent = itemCount
 }
