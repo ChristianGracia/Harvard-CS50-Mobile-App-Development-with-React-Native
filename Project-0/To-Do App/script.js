@@ -11,6 +11,7 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 var itemCount = 0
+var uncheckedCount = 0
 
 window.onload = formButton()
 
@@ -38,8 +39,13 @@ function newTodo(item) {
   console.log(item)
 
   //update todo list item count
-
   itemCount++
   console.log("item count: " + itemCount)
   document.getElementById('item-count').textContent = itemCount
+
+  //update todo list unchecked item count
+  uncheckedCount ++
+  console.log("unchecked: " + uncheckedCount)
+  document.getElementById('unchecked-count').textContent = uncheckedCount
+
 }
