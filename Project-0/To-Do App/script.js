@@ -13,16 +13,16 @@ window.onload = formButton()
 
 function formButton() {
 
-  var labelAdd = document.createElement("label")
-  labelAdd.setAttribute("class", "label")
-  document.getElementsByClassName("label").textContent ="Todo:"
-
   var inputAdd = document.createElement("input")
   inputAdd.setAttribute("type", "text")
   inputAdd.setAttribute("id", "item")
-  inputAdd.setAttribute("name", "item")
-
-  document.getElementsByClassName("container")[0].appendChild(labelAdd)
+  inputAdd.setAttribute("placeholder", "to-do item")
+  inputAdd.setAttribute("id", "item")
   document.getElementsByClassName("container")[0].appendChild(inputAdd)
+}
+
+function newTodo(item) {
+  var item = document.getElementById("item").value
+  console.log(item)
 
 }
