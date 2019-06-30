@@ -61,15 +61,34 @@ function newTodo(item) {
   const buttonAdd = document.createElement('input')
   buttonAdd.setAttribute("type", "checkbox")
   buttonAdd.setAttribute("class", "todo-checkbox")
-
-  buttonAdd.setAttribute("onclick", "myfunction()")
+  buttonAdd.setAttribute("checked", "unchecked")
+  buttonAdd.setAttribute("onclick", "unclickFunction()")
 
   listItems.appendChild(buttonAdd)
 
 }
 
-function myfunction(){
+var counter = 0;
+
+function unclickFunction(){
   console.log("click")
-  uncheckedCount --
-  document.getElementById('unchecked-count').textContent = uncheckedCount
+  if (uncheckedCount > 0) {
+    uncheckedCount --
+    document.getElementById('unchecked-count').textContent = uncheckedCount
+  }
+  //
+  // counter ++;
+  //
+  // if (counter == 2){
+  //   counter = 0;
+  // }
+  // uncheckedCount - counter;
+  // document.getElementById('unchecked-count').textContent = uncheckedCount
+
+  // if (counter == 2) {
+  //   document.getElementById('unchecked-count').textContent = uncheckedCount + counter
+  //   counter = 0
+  // }
+
+
 }
