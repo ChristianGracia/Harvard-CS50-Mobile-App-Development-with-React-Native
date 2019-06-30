@@ -63,51 +63,35 @@ function newTodo(item) {
   buttonAdd.setAttribute("type", "checkbox")
   buttonAdd.setAttribute("class", "todo-checkbox check")
   buttonAdd.setAttribute("onclick", "unclickFunction()")
-  buttonAdd.setAttribute("id", "check")
+  buttonAdd.setAttribute("id", "check" + buttonCounter)
+  buttonAdd.setAttribute("value", "1")
   buttonCounter++
-  buttonAdd.setAttribute("name", buttonCounter)
-
-
-  // for (var i = 0; i < buttonCounter; i++) {
-  // var buttonCheck =  document.getElementsByClassName('check')
-  // buttonCheck.setAttribute("name", i)
-  //
-  // }
-
-
   listItems.appendChild(buttonAdd)
 
 }
 
-function unclickFunction(){
-  console.log("click")
-  var checker = document.getElementsByClassName('check')
-
-  var lengthCheckBoxes = checker.length - 1
-  console.log(lengthCheckBoxes)
-
-  console.log(checker)
-  checker[lengthCheckBoxes].style.display
+function unclickFunction(e){
 
 
+  //click event set up
+  var targ;
+  if (!e) var e = window.event;
+  if (e.target) targ = e.target;
+  else if (e.srcElement) targ = e.srcElement;
+  if (targ.nodeType == 3) // defeat Safari bug
+  targ = targ.parentNode;
 
+//change unchecked to-do item count when button is clicked
+ if (e.target.value == 1){
+   uncheckedCount--
+   document.getElementById('unchecked-count').textContent = uncheckedCount
+   e.target.value = 0
 
-  buttonCounter--
+ }
+ else {
+   uncheckedCount++
+   document.getElementById('unchecked-count').textContent = uncheckedCount
+   e.target.value = 1
 
-
-
-
-
-
-
-  // for (var j = 0; j<i; j++){
-  //   checker[.style.display = "none";
-  // }
-
-  uncheckedCount --
-  document.getElementById('unchecked-count').textContent = uncheckedCount
-
-  // checker.style.display = "none";
-
-
+ }
 }
