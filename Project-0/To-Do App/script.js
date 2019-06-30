@@ -12,6 +12,7 @@ const classNames = {
 //init trackers
 var itemCount = 0
 var uncheckedCount = 0
+var buttonCounter = 0
 
 //create input button through DOM manipulation
 window.onload = inputButton()
@@ -63,6 +64,16 @@ function newTodo(item) {
   buttonAdd.setAttribute("class", "todo-checkbox check")
   buttonAdd.setAttribute("onclick", "unclickFunction()")
   buttonAdd.setAttribute("id", "check")
+  buttonCounter++
+  buttonAdd.setAttribute("name", buttonCounter)
+
+
+  // for (var i = 0; i < buttonCounter; i++) {
+  // var buttonCheck =  document.getElementsByClassName('check')
+  // buttonCheck.setAttribute("name", i)
+  //
+  // }
+
 
   listItems.appendChild(buttonAdd)
 
@@ -72,11 +83,31 @@ function unclickFunction(){
   console.log("click")
   var checker = document.getElementsByClassName('check')
 
+  var lengthCheckBoxes = checker.length - 1
+  console.log(lengthCheckBoxes)
+
+  console.log(checker)
+  checker[lengthCheckBoxes].style.display
+
+
+
+
+  buttonCounter--
+
+
+
+
+
+
+
+  // for (var j = 0; j<i; j++){
+  //   checker[.style.display = "none";
+  // }
+
   uncheckedCount --
   document.getElementById('unchecked-count').textContent = uncheckedCount
 
-  if (checker.checked){
-    uncheckedCount ++
-    document.getElementById('unchecked-count').textContent = uncheckedCount
-  }
+  // checker.style.display = "none";
+
+
 }
