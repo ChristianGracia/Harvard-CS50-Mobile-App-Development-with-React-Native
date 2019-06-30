@@ -5,7 +5,6 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
-
 // const list = document.getElementById('todo-list')
 // const itemCountSpan = document.getElementById('item-count')
 // const uncheckedCountSpan = document.getElementById('unchecked-count')
@@ -28,12 +27,9 @@ function formButton() {
 
   //disable button click with 0 input
 
-  var requireInput = document.getElementsByClassName('button')
-  // requireInput.setAttribute("required", "");
-  requireInput.required = true;
-
-
-
+  // var requireInput = document.getElementsByClassName('button')
+  // // requireInput.setAttribute("required", "");
+  // requireInput.required = true;
 }
 
 function newTodo(item) {
@@ -62,10 +58,18 @@ function newTodo(item) {
   document.getElementById('unchecked-count').textContent = uncheckedCount
 
   //add button
-  var buttonAdd = document.createElement('input')
+  const buttonAdd = document.createElement('input')
   buttonAdd.setAttribute("type", "checkbox")
-  buttonAdd.setAttribute("checked", "unchecked")
   buttonAdd.setAttribute("class", "todo-checkbox")
+
+  buttonAdd.setAttribute("onclick", "myfunction()")
+
   listItems.appendChild(buttonAdd)
 
+}
+
+function myfunction(){
+  console.log("click")
+  uncheckedCount --
+  document.getElementById('unchecked-count').textContent = uncheckedCount
 }
