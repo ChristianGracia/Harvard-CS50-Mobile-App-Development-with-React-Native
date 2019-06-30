@@ -25,17 +25,13 @@ function inputButton() {
   inputAdd.setAttribute("placeholder", "to-do item")
   inputAdd.setAttribute("name", "item")
   document.getElementsByClassName("container")[0].appendChild(inputAdd)
-
-  //disable button click with 0 input
-
-  // var requireInput = document.getElementsByClassName('button')
-  // // requireInput.setAttribute("required", "");
-  // requireInput.required = true;
 }
 
 function newTodo(item) {
 
+
   var item = document.getElementById("item").value
+  if (item != ""){
   document.getElementById("item").value = ""
   listItems = document.getElementById("todo-list")
 
@@ -62,16 +58,17 @@ function newTodo(item) {
   const buttonAdd = document.createElement('input')
   buttonAdd.setAttribute("type", "checkbox")
   buttonAdd.setAttribute("class", "todo-checkbox check")
-  buttonAdd.setAttribute("onclick", "unclickFunction()")
+  buttonAdd.setAttribute("onclick", "checkBoxFunction()")
   buttonAdd.setAttribute("id", "check" + buttonCounter)
   buttonAdd.setAttribute("value", "1")
   buttonCounter++
   listItems.appendChild(buttonAdd)
+}
+else alert("Please enter to-do list item")
 
 }
 
-function unclickFunction(e){
-
+function checkBoxFunction(e){
 
   //click event set up
   var targ;
@@ -92,6 +89,5 @@ function unclickFunction(e){
    uncheckedCount++
    document.getElementById('unchecked-count').textContent = uncheckedCount
    e.target.value = 1
-
  }
 }
