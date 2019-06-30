@@ -13,10 +13,10 @@ const classNames = {
 var itemCount = 0
 var uncheckedCount = 0
 
-//create form button through DOM manipulation
-window.onload = formButton()
+//create input button through DOM manipulation
+window.onload = inputButton()
 
-function formButton() {
+function inputButton() {
 
   var inputAdd = document.createElement("input")
   inputAdd.setAttribute("type", "text")
@@ -60,35 +60,23 @@ function newTodo(item) {
   //add button
   const buttonAdd = document.createElement('input')
   buttonAdd.setAttribute("type", "checkbox")
-  buttonAdd.setAttribute("class", "todo-checkbox")
-  buttonAdd.setAttribute("checked", "unchecked")
+  buttonAdd.setAttribute("class", "todo-checkbox check")
   buttonAdd.setAttribute("onclick", "unclickFunction()")
+  buttonAdd.setAttribute("id", "check")
 
   listItems.appendChild(buttonAdd)
 
 }
 
-var counter = 0;
-
 function unclickFunction(){
   console.log("click")
-  if (uncheckedCount > 0) {
-    uncheckedCount --
+  var checker = document.getElementsByClassName('check')
+
+  uncheckedCount --
+  document.getElementById('unchecked-count').textContent = uncheckedCount
+
+  if (checker.checked){
+    uncheckedCount ++
     document.getElementById('unchecked-count').textContent = uncheckedCount
   }
-  //
-  // counter ++;
-  //
-  // if (counter == 2){
-  //   counter = 0;
-  // }
-  // uncheckedCount - counter;
-  // document.getElementById('unchecked-count').textContent = uncheckedCount
-
-  // if (counter == 2) {
-  //   document.getElementById('unchecked-count').textContent = uncheckedCount + counter
-  //   counter = 0
-  // }
-
-
 }
