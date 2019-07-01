@@ -14,35 +14,57 @@ var itemCount = 0
 var uncheckedCount = 0
 var buttonCounter = 0
 
-//create input button through DOM manipulation
-window.onload = inputButton()
-
-function inputButton() {
-
-  var inputAdd = document.createElement("input")
-  inputAdd.setAttribute("type", "text")
-  inputAdd.setAttribute("id", "item")
-  inputAdd.setAttribute("placeholder", "to-do item")
-  inputAdd.setAttribute("name", "item")
-  document.getElementsByClassName("container")[0].appendChild(inputAdd)
-}
+// //create input button through DOM manipulation
+// window.onload = inputButton()
+//
+// function inputButton() {
+//
+//   var inputAdd = document.createElement("input")
+//   inputAdd.setAttribute("type", "text")
+//   inputAdd.setAttribute("id", "item")
+//   inputAdd.setAttribute("placeholder", "to-do item")
+//   inputAdd.setAttribute("name", "item")
+//   document.getElementsByClassName("container")[0].appendChild(inputAdd)
+// }
 
 function newTodo(item) {
 
+  //add input button
+  const buttonInput = document.createElement('input')
+  buttonInput.setAttribute("type", "text")
+  buttonInput.setAttribute("id", "id00" + itemCount)
+  buttonInput.setAttribute("placeholder", "to-do item")
 
-  var item = document.getElementById("item").value
-  if (item != ""){
-  document.getElementById("item").value = ""
+  //add button
+  const buttonAdd = document.createElement('input')
+  buttonAdd.setAttribute("type", "checkbox")
+  buttonAdd.setAttribute("class", "todo-checkbox check")
+  buttonAdd.setAttribute("onclick", "checkBoxFunction()")
+  buttonAdd.setAttribute("id", "check" + buttonCounter)
+  buttonAdd.setAttribute("value", "1")
+  buttonCounter++
+
+  //add delete button
+
+  //add buttons to html
   listItems = document.getElementById("todo-list")
+  listItems.appendChild(buttonInput)
+  listItems.appendChild(buttonAdd)
 
-  //create li element
-  newItem = document.createElement("li")
-  newItem.setAttribute("class", "todo-text")
 
-  //add list item to li element
-  newItem.innerText = item
-  listItems.appendChild(newItem)
-  console.log(item)
+
+  //
+  // //create li element
+  // newItem = document.createElement("li")
+  // newItem.setAttribute("class", "todo-text")
+  //
+  // //add list item to li element
+  // newItem.innerText = item
+  // listItems.appendChild(newItem)
+  // console.log(item)
+
+
+
 
   //update todo list item count
   itemCount++
@@ -54,21 +76,11 @@ function newTodo(item) {
   console.log("unchecked: " + uncheckedCount)
   document.getElementById('unchecked-count').textContent = uncheckedCount
 
-  //add button
-  const buttonAdd = document.createElement('input')
-  buttonAdd.setAttribute("type", "checkbox")
-  buttonAdd.setAttribute("class", "todo-checkbox check")
-  buttonAdd.setAttribute("onclick", "checkBoxFunction()")
-  buttonAdd.setAttribute("id", "check" + buttonCounter)
-  buttonAdd.setAttribute("value", "1")
-  buttonCounter++
-  listItems.appendChild(buttonAdd)
-}
-else alert("Please enter to-do list item")
+
 
 }
 
-function checkBoxFunction(e){
+function checkBoxFunction(e) {
 
   //click event set up
   var targ;
@@ -76,18 +88,18 @@ function checkBoxFunction(e){
   if (e.target) targ = e.target;
   else if (e.srcElement) targ = e.srcElement;
   if (targ.nodeType == 3) // defeat Safari bug
-  targ = targ.parentNode;
+    targ = targ.parentNode;
 
-//change unchecked to-do item count when button is clicked
- if (e.target.value == 1){
-   uncheckedCount--
-   document.getElementById('unchecked-count').textContent = uncheckedCount
-   e.target.value = 0
+  //change unchecked to-do item count when button is clicked
+  if (e.target.value == 1) {
+    uncheckedCount--
+    document.getElementById('unchecked-count').textContent = uncheckedCount
+    e.target.value = 0
 
- }
- else {
-   uncheckedCount++
-   document.getElementById('unchecked-count').textContent = uncheckedCount
-   e.target.value = 1
- }
+  }
+  else {
+    uncheckedCount++
+    document.getElementById('unchecked-count').textContent = uncheckedCount
+    e.target.value = 1
+  }
 }
