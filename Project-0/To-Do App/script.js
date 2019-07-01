@@ -20,6 +20,7 @@ function newTodo(item) {
 
 //create div
 const divContainer = document.createElement('div');
+divContainer.setAttribute("class", "ghostDiv");
 
 
 //add input button
@@ -59,14 +60,19 @@ document.getElementById('unchecked-count').textContent = uncheckedCount;
 
 function submitItem(e) {
 
+
 //click event set up
 var targ;
 if (!e) var e = window.event;
 if (e.target) targ = e.target;
 else if (e.srcElement) targ = e.srcElement;
 
+
+
 var idCompare = "id" + e.target.name;
 var item = document.getElementById(idCompare).value;
+
+if(item != ""){
 
   //create li element
   newItem = document.createElement("li");
@@ -110,6 +116,8 @@ var item = document.getElementById(idCompare).value;
 
 
   listItems.appendChild(deleteButton)
+  }
+  else alert("You didn't Enter Anything!")
 }
 
 function checkBoxFunction(e) {
@@ -154,9 +162,7 @@ function deleteButton(e){
    document.getElementById("check" + idNumber[13]).style.display = "none"
 
    itemCount--
-   uncheckedCount--
 
    document.getElementById('item-count').textContent = itemCount;
    document.getElementById('unchecked-count').textContent = uncheckedCount;
-
 }
