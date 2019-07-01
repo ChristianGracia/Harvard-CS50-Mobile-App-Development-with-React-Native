@@ -16,7 +16,7 @@ ul {
 
 li {
   font-size: 100px;
-  padding: 30px;
+  padding: 2px;
   text-align: center;
 }
 
@@ -32,7 +32,7 @@ li {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2px;
+  padding: 1px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -82,7 +82,7 @@ li {
 .check-del-box {
   display: flex;
   justify-content: space-around;
-  border-bottom: 1px solid blue;
+  border-bottom: .4px solid cyan;
 }
 .delete-button {
   font-size: 15px;
@@ -90,10 +90,7 @@ li {
   height: 20px;
   float: right;
   margin:10px;
-
 }
 .input-submit {
   border: 1px solid blue;
-}
-.input-text {
 }
