@@ -5,27 +5,10 @@ const classNames = {
   TODO_DELETE: 'todo-delete',
 }
 
-// const list = document.getElementById('todo-list')
-// const itemCountSpan = document.getElementById('item-count')
-// const uncheckedCountSpan = document.getElementById('unchecked-count')
-
 //init trackers
 var itemCount = 0
 var uncheckedCount = 0
 var buttonCounter = 0
-
-// //create input button through DOM manipulation
-// window.onload = inputButton()
-//
-// function inputButton() {
-//
-//   var inputAdd = document.createElement("input")
-//   inputAdd.setAttribute("type", "text")
-//   inputAdd.setAttribute("id", "item")
-//   inputAdd.setAttribute("placeholder", "to-do item")
-//   inputAdd.setAttribute("name", "item")
-//   document.getElementsByClassName("container")[0].appendChild(inputAdd)
-// }
 
 function newTodo(item) {
 
@@ -67,9 +50,6 @@ function newTodo(item) {
     uncheckedCount++
     console.log("unchecked: " + uncheckedCount)
     document.getElementById('unchecked-count').textContent = uncheckedCount
-
-
-
 }
 
 function submitItem(e) {
