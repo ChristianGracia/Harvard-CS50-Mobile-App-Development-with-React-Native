@@ -1,1 +1,1 @@
-to-do app fully functional using only Dom manipulation.
+to-do app fully functional using only DOM manipulation.
