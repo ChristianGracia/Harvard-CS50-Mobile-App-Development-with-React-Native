@@ -149,14 +149,14 @@ function deleteButton(e) {
   if (e.target) targ = e.target;
   else if (e.srcElement) targ = e.srcElement;
 
-  var idNumber = (e.target.id)
+  var idNumber = (e.target.id);
 
-  document.getElementById(e.target.id).style.display = "none"
+  document.getElementById(e.target.id).style.display = "none";
 
   if (document.getElementById("li" + idNumber[13])) {
-    document.getElementById("li" + idNumber[13]).style.display = "none"
+    document.getElementById("li" + idNumber[13]).style.display = "none";
   }
-  document.getElementById("check" + idNumber[13]).style.display = "none"
+  document.getElementById("check" + idNumber[13]).style.display = "none";
 
   itemCount--
 
