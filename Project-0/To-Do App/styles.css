@@ -2,7 +2,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   background-color: #eee;
   margin: 0;
   padding: 0;
@@ -12,6 +13,11 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+li {
+  font-size: 100px;
+  padding: 30px;
 }
 
 .center {
@@ -33,23 +39,26 @@ ul {
   height: 100vh;
 }
 
-.title, .controls, .button {
+.title,
+.controls,
+.button {
   flex: none;
 }
 
 .button {
   padding: 10px 20px;
 }
+
 .delete-button {
   width: 100px;
-  height: 60px;
+  height: 40px;
   padding: 20px;
 }
 
 .todo-list {
   flex: 1 1 0;
   margin-top: 20px;
-  padding: 20px;
+  padding: 40px;
   overflow-y: auto;
 }
 
@@ -62,9 +71,10 @@ ul {
   width: 10px;
   height: 10px;
 }
+
 .check {
   width: 50px;
-  height: 50px
+  height: 50px;
 }
 
 .todo-container {
@@ -75,10 +85,22 @@ ul {
 .todo-container:first-of-type {
   border-top: 1px solid #333;
 }
+
 .todo-text {
   font-size: 30px;
   color: blue;
 }
+
 .title {
   color: blue;
+}
+
+.ghostDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.check-del-box {
+  display: flex;
+  flex-direction: row;
 }
