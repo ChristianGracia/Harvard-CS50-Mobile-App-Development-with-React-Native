@@ -120,15 +120,14 @@ function submitItem(e) {
     listItems.appendChild(ghostdiv1);
 
     //remove error message if up because of use failing to put in buttonInput
-    if (document.getElementById("err-msg") != undefined)
-    {
-        document.getElementById("err-msg").innerText = "";
+    if (document.getElementById("err-msg") != undefined) {
+      document.getElementById("err-msg").innerText = "";
     }
 
-    }
+  }
 
-    //error 1
-    else if (errCheck == 0) {
+  //error 1
+  else if (errCheck == 0) {
     var createH2 = document.createElement("H2");
     createH2.innerText = "Please enter a task!";
     createH2.setAttribute("id", "err-msg");
@@ -140,12 +139,12 @@ function submitItem(e) {
 
   }
 
-    //error 2
-    else if (errCheck == 1){
-      alert('Please enter your to-do item.');
-      errCheck++;
-    }
-    return 0;
+  //error 2
+  else if (errCheck == 1) {
+    alert('Please enter your to-do item.');
+    errCheck++;
+  }
+  return 0;
 }
 
 function checkBoxFunction(e) {
@@ -192,11 +191,11 @@ function deleteButton(e) {
   document.getElementById("check" + idNumber[13]).style.display = "none";
 
   //decrease item counter
-  itemCount--
+  itemCount--;
   document.getElementById('item-count').textContent = itemCount;
 
   //unchecked boxes check
-  if (document.getElementById('check'+ idNumber[13]).value == 1){
+  if (document.getElementById('check' + idNumber[13]).value == 1) {
     uncheckedCount--;
     document.getElementById('unchecked-count').textContent = uncheckedCount;
   }
