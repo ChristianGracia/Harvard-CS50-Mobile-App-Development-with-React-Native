@@ -44,7 +44,6 @@ function newTodo(item) {
   //add buttons to container
   divContainer.appendChild(buttonInput);
   divContainer.appendChild(submitButton);
-  // divContainer.appendChild(checkBoxes);
 
   //add buttons to html
   listItems = document.getElementById("todo-list");

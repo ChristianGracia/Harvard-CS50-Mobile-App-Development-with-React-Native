@@ -2,8 +2,7 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   background-color: #eee;
   margin: 0;
   padding: 0;
@@ -18,6 +17,7 @@ ul {
 li {
   font-size: 100px;
   padding: 30px;
+  text-align: center;
 }
 
 .center {
@@ -32,38 +32,20 @@ li {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 2px;
   display: flex;
   flex-direction: column;
   background-color: white;
   height: 100vh;
 }
 
-.title,
-.controls,
-.button {
-  flex: none;
-}
-
 .button {
   padding: 10px 20px;
 }
 
-.delete-button {
-  width: 100px;
-  height: 40px;
-  padding: 20px;
-}
-
 .todo-list {
-  flex: 1 1 0;
-  margin-top: 20px;
-  padding: 40px;
+  padding: 20px;
   overflow-y: auto;
-}
-
-.todo-delete {
-  margin: 10px;
 }
 
 .todo-checkbox {
@@ -71,10 +53,10 @@ li {
   width: 10px;
   height: 10px;
 }
-
 .check {
-  width: 50px;
-  height: 50px;
+  width: 15px;
+  height: 15px;
+  margin: 10px;
 }
 
 .todo-container {
@@ -85,22 +67,33 @@ li {
 .todo-container:first-of-type {
   border-top: 1px solid #333;
 }
-
 .todo-text {
   font-size: 30px;
   color: blue;
 }
-
 .title {
   color: blue;
 }
-
 .ghostDiv {
   display: flex;
   justify-content: center;
+  padding: 3px;
 }
-
 .check-del-box {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid blue;
+}
+.delete-button {
+  font-size: 15px;
+  width: 60px;
+  height: 20px;
+  float: right;
+  margin:10px;
+
+}
+.input-submit {
+  border: 1px solid blue;
+}
+.input-text {
 }
