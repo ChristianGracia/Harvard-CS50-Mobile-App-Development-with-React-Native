@@ -3,7 +3,7 @@ const classNames = {
   TODO_CHECKBOX: 'todo-checkbox',
   TODO_TEXT: 'todo-text',
   TODO_DELETE: 'todo-delete',
-}
+};
 
 //init trackers
 var itemCount = 0;
@@ -29,12 +29,14 @@ function newTodo(item) {
   buttonInput.setAttribute("type", "text");
   buttonInput.setAttribute("id", "id" + itemCount);
   buttonInput.setAttribute("placeholder", "to-do item");
+  buttonInput.setAttribute("class", "input-text");
 
   //add submit button
   const submitButton = document.createElement('input');
   submitButton.setAttribute("type", "submit");
   submitButton.setAttribute("onclick", "submitItem()");
   submitButton.setAttribute("name", itemCount);
+  submitButton.setAttribute("class", "input-submit");
 
   //add buttons to html
   listItems = document.getElementById("todo-list");
@@ -46,7 +48,7 @@ function newTodo(item) {
 
   //add buttons to html
   listItems = document.getElementById("todo-list");
-  listItems.appendChild(divContainer)
+  listItems.appendChild(divContainer);
 
   //update todo list item count
   itemCount++;
@@ -68,10 +70,6 @@ function submitItem(e) {
   if (e.target) targ = e.target;
   else if (e.srcElement) targ = e.srcElement;
 
-
-
-
-
   var idCompare = "id" + e.target.name;
   var item = document.getElementById(idCompare).value;
   console.log(e.target.name);
@@ -91,7 +89,7 @@ function submitItem(e) {
 
     //create div
     const ghostdiv1 = document.createElement("div");
-    ghostdiv1.setAttribute("class", "check-del-box")
+    ghostdiv1.setAttribute("class", "check-del-box");
 
     //add checkbox button
     const checkBoxes = document.createElement('input');
@@ -111,13 +109,13 @@ function submitItem(e) {
 
     //add delete button
     const deleteButton = document.createElement("button");
-    deleteButton.setAttribute("onclick", "deleteButton()")
-    deleteButton.setAttribute("class", "delete-button")
-    deleteButton.setAttribute("type", "button")
-    deleteButton.setAttribute("value", "button")
-    deleteButton.innerText = "Delete"
+    deleteButton.setAttribute("onclick", "deleteButton()");
+    deleteButton.setAttribute("class", "delete-button");
+    deleteButton.setAttribute("type", "button");
+    deleteButton.setAttribute("value", "button");
+    deleteButton.innerText = "Delete";
     deleteButton.setAttribute("id", "delete-button" + deleteCounter);
-    deleteCounter++
+    deleteCounter++;
 
     ghostdiv1.appendChild(deleteButton);
     listItems.appendChild(ghostdiv1);
@@ -145,7 +143,7 @@ function submitItem(e) {
 
     //error 2
     else if (errCheck == 1){
-      alert('Please enter your to-do item.')
+      alert('Please enter your to-do item.');
       errCheck++;
     }
     return 0;
@@ -207,6 +205,5 @@ function deleteButton(e) {
   //reload
   if (itemCount == 0) {
     window.location.reload(false);
-    console.log("hi")
   }
 }
