@@ -3,13 +3,14 @@ const classNames = {
   TODO_CHECKBOX: 'todo-checkbox',
   TODO_TEXT: 'todo-text',
   TODO_DELETE: 'todo-delete',
-}
+};
 
 //init trackers
 var itemCount = 0;
 var uncheckedCount = 0;
 var buttonCounter = 0;
 var deleteCounter = 1;
+var errCheck = 0;
 
 
 //title
@@ -45,7 +46,7 @@ function newTodo(item) {
 
   //add buttons to html
   listItems = document.getElementById("todo-list");
-  listItems.appendChild(divContainer)
+  listItems.appendChild(divContainer);
 
   //update todo list item count
   itemCount++;
@@ -61,6 +62,10 @@ function newTodo(item) {
 
 function submitItem(e) {
 
+  //remove error message if up because of use failing to put in buttonInput
+  if (document.getElementById("err-msg") != undefined){
+  document.getElementById("err-msg").innerText = "";
+}
 
   //click event set up
   var targ;
@@ -101,17 +106,28 @@ function submitItem(e) {
 
     //add delete button
     const deleteButton = document.createElement("button");
-    deleteButton.setAttribute("onclick", "deleteButton()")
-    deleteButton.setAttribute("class", "delete-button")
-    deleteButton.setAttribute("type", "button")
-    deleteButton.setAttribute("value", "button")
-    deleteButton.innerText = "Delete"
+    deleteButton.setAttribute("onclick", "deleteButton()");
+    deleteButton.setAttribute("class", "delete-button");
+    deleteButton.setAttribute("type", "button");
+    deleteButton.setAttribute("value", "button");
+    deleteButton.innerText = "Delete";
     deleteButton.setAttribute("id", "delete-button" + deleteCounter);
-    deleteCounter++
+    deleteCounter++;
 
     listItems.appendChild(deleteButton);
+    }
+
+    else if (errCheck == 0) {
+    var createH2 = document.createElement("H2");
+    createH2.innerText = "Please enter a task!";
+    createH2.setAttribute("id", "err-msg");
+    var getList = document.getElementById('todo-list');
+    getList.append(createH2);
+    errCheck++;
   }
-  else alert("You didn't Enter Anything!");
+
+    else
+      alert('Please enter your to-do item.');
 }
 
 function checkBoxFunction(e) {
@@ -152,7 +168,7 @@ function deleteButton(e) {
   }
   document.getElementById("check" + idNumber[13]).style.display = "none";
 
-  itemCount--
+  itemCount--;
 
   document.getElementById('item-count').textContent = itemCount;
 
