@@ -56,6 +56,7 @@ function newTodo(item) {
   uncheckedCount++;
   console.log("unchecked: " + uncheckedCount);
   document.getElementById('unchecked-count').textContent = uncheckedCount;
+
 }
 
 function submitItem(e) {
@@ -92,14 +93,11 @@ function submitItem(e) {
     checkBoxes.setAttribute("onclick", "checkBoxFunction()");
     checkBoxes.setAttribute("id", "check" + deleteCounter);
     checkBoxes.setAttribute("value", "1");
-    listItems.appendChild(checkBoxes)
+    listItems.appendChild(checkBoxes);
     buttonCounter++;
 
-    document.getElementById(idCompare).style.display = "none"
-    e.target.style.display = "none"
-
-
-
+    document.getElementById(idCompare).style.display = "none";
+    e.target.style.display = "none";
 
     //add delete button
     const deleteButton = document.createElement("button");
@@ -108,16 +106,12 @@ function submitItem(e) {
     deleteButton.setAttribute("type", "button")
     deleteButton.setAttribute("value", "button")
     deleteButton.innerText = "Delete"
-
-
-
-    deleteButton.setAttribute("id", "delete-button" + deleteCounter)
+    deleteButton.setAttribute("id", "delete-button" + deleteCounter);
     deleteCounter++
 
-
-    listItems.appendChild(deleteButton)
+    listItems.appendChild(deleteButton);
   }
-  else alert("You didn't Enter Anything!")
+  else alert("You didn't Enter Anything!");
 }
 
 function checkBoxFunction(e) {
@@ -161,5 +155,12 @@ function deleteButton(e) {
   itemCount--
 
   document.getElementById('item-count').textContent = itemCount;
-  document.getElementById('unchecked-count').textContent = uncheckedCount;
+
+
+  console.log(document.getElementById('check'+ idNumber[13]).value);
+
+  if (document.getElementById('check'+ idNumber[13]).value == 1){
+    uncheckedCount--;
+    document.getElementById('unchecked-count').textContent = uncheckedCount;
+  }
 }
