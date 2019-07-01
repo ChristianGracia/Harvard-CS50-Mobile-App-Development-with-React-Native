@@ -9,6 +9,7 @@ const classNames = {
 var itemCount = 0;
 var uncheckedCount = 0;
 var buttonCounter = 0;
+var deleteCounter = 1;
 
 
 //title
@@ -70,6 +71,7 @@ var item = document.getElementById(idCompare).value;
   //create li element
   newItem = document.createElement("li");
   newItem.setAttribute("class", "todo-text");
+  newItem.setAttribute("id", "li"+ deleteCounter);
 
   //add list item to li element
   newItem.innerText = item;
@@ -82,13 +84,32 @@ var item = document.getElementById(idCompare).value;
   checkBoxes.setAttribute("type", "checkbox");
   checkBoxes.setAttribute("class", "todo-checkbox check");
   checkBoxes.setAttribute("onclick", "checkBoxFunction()");
-  checkBoxes.setAttribute("id", "check" + buttonCounter);
+  checkBoxes.setAttribute("id", "check" + deleteCounter);
   checkBoxes.setAttribute("value", "1");
   listItems.appendChild(checkBoxes)
   buttonCounter++;
 
   document.getElementById(idCompare).style.display = "none"
   e.target.style.display = "none"
+
+
+
+
+  //add delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.setAttribute("onclick", "deleteButton()")
+  deleteButton.setAttribute("class", "delete-button")
+  deleteButton.setAttribute("type", "button")
+  deleteButton.setAttribute("value", "button")
+  deleteButton.innerText = "Delete"
+
+
+
+  deleteButton.setAttribute("id", "delete-button" + deleteCounter)
+  deleteCounter++
+
+
+  listItems.appendChild(deleteButton)
 }
 
 function checkBoxFunction(e) {
@@ -112,4 +133,30 @@ function checkBoxFunction(e) {
     document.getElementById('unchecked-count').textContent = uncheckedCount;
     e.target.value = 1;
   }
+}
+
+function deleteButton(e){
+
+  //click event set up
+  var targ;
+  if (!e) var e = window.event;
+  if (e.target) targ = e.target;
+  else if (e.srcElement) targ = e.srcElement;
+
+  var idNumber = (e.target.id)
+
+  document.getElementById(e.target.id).style.display = "none"
+
+  if (document.getElementById("li" + idNumber[13]))
+  {
+   document.getElementById("li" + idNumber[13]).style.display = "none"
+  }
+   document.getElementById("check" + idNumber[13]).style.display = "none"
+
+   itemCount--
+   uncheckedCount--
+
+   document.getElementById('item-count').textContent = itemCount;
+   document.getElementById('unchecked-count').textContent = uncheckedCount;
+
 }
