@@ -3,7 +3,7 @@ const classNames = {
   TODO_CHECKBOX: 'todo-checkbox',
   TODO_TEXT: 'todo-text',
   TODO_DELETE: 'todo-delete',
-};
+}
 
 //init trackers
 var itemCount = 0;
@@ -46,7 +46,7 @@ function newTodo(item) {
 
   //add buttons to html
   listItems = document.getElementById("todo-list");
-  listItems.appendChild(divContainer);
+  listItems.appendChild(divContainer)
 
   //update todo list item count
   itemCount++;
@@ -106,16 +106,18 @@ function submitItem(e) {
 
     //add delete button
     const deleteButton = document.createElement("button");
-    deleteButton.setAttribute("onclick", "deleteButton()");
-    deleteButton.setAttribute("class", "delete-button");
-    deleteButton.setAttribute("type", "button");
-    deleteButton.setAttribute("value", "button");
-    deleteButton.innerText = "Delete";
+    deleteButton.setAttribute("onclick", "deleteButton()")
+    deleteButton.setAttribute("class", "delete-button")
+    deleteButton.setAttribute("type", "button")
+    deleteButton.setAttribute("value", "button")
+    deleteButton.innerText = "Delete"
     deleteButton.setAttribute("id", "delete-button" + deleteCounter);
-    deleteCounter++;
+    deleteCounter++
 
     listItems.appendChild(deleteButton);
     }
+
+    //error 1
 
     else if (errCheck == 0) {
     var createH2 = document.createElement("H2");
@@ -126,8 +128,12 @@ function submitItem(e) {
     errCheck++;
   }
 
-    else
-      alert('Please enter your to-do item.');
+    //error 2
+    else if (errCheck == 1){
+      alert('Please enter your to-do item.')
+      errCheck++;
+    }
+    return 0;
 }
 
 function checkBoxFunction(e) {
@@ -159,22 +165,25 @@ function deleteButton(e) {
   if (e.target) targ = e.target;
   else if (e.srcElement) targ = e.srcElement;
 
+  //get button id
   var idNumber = (e.target.id);
 
+  //hide button element
   document.getElementById(e.target.id).style.display = "none";
 
+  //hide li element
   if (document.getElementById("li" + idNumber[13])) {
     document.getElementById("li" + idNumber[13]).style.display = "none";
   }
+
+  //hide checkbox element
   document.getElementById("check" + idNumber[13]).style.display = "none";
 
-  itemCount--;
-
+  //decrease item counter
+  itemCount--
   document.getElementById('item-count').textContent = itemCount;
 
-
-  console.log(document.getElementById('check'+ idNumber[13]).value);
-
+  //unchecked boxes check
   if (document.getElementById('check'+ idNumber[13]).value == 1){
     uncheckedCount--;
     document.getElementById('unchecked-count').textContent = uncheckedCount;
