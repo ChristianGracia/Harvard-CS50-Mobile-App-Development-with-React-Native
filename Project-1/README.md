@@ -1,7 +1,5 @@
 Pomodoro Timer App
 
-//
-
 
 # Project 1 - Pomodoro Timer
 For this project, you'll be implementing a Pomodoro timer. This timer will help
@@ -74,9 +72,3 @@ import {vibrate} from './utils'
 // causes phone to vibrate
 vibrate()
 ```
-
-Good luck!
-
-## Staff Solution
-If you want to play with the staff implementation, you can view it using
-Snack at [@jhhayashi/project1-solution](https://snack.expo.io/@jhhayashi/project1-solution).
