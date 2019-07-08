@@ -1,5 +1,39 @@
 Pomodoro Timer App
 
+# Pomodor App for CS50 Mobile Course
+Will be complete in a few days
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Project 1 - Pomodoro Timer
 For this project, you'll be implementing a Pomodoro timer. This timer will help
