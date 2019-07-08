@@ -6,5 +6,13 @@
     "prop-types": "^15.6.0",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz"
-  }
+  },
+  "name": "Pomodoro-Timer",
+  "description": "Pomodoro Timer App",
+  "version": "0.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD"
 }
