@@ -8,7 +8,8 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      startApp: true
+      startApp: true,
+      clockShow: false
     }
   }
 
@@ -27,8 +28,9 @@ export default class App extends React.Component {
         <Image source={require("./assets/icon.png")} style={styles.logoStyle} />
         <Text style={styles.slogan}>Your little productivity buddy</Text>
         {this.state.startApp ? <Button className="enterButton" title="Start Working" onPress={this.hideButton}  />: null}
+        <View>
         {!this.state.startApp ? <Timer />: null}
-        {!this.state.startApp ? <Clock />: null}
+        </View>
       </View>
     );
   }

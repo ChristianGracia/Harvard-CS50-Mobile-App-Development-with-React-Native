@@ -8,18 +8,59 @@ class Timer extends React.Component {
 
     this.state = {
       buttonShow: true,
-      timeShow: false
+      timeShow: false,
+      min25: false,
+      min5: false,
+      minutes: "00",
+      seconds: "00"
     };
+    this.startClock = this.startClock.bind(this)
   }
-  hideTimeButtons = () => {
+  hideTimeButtons25 = () => {
+    this.setState({ minutes: "00" });
+    this.setState({ seconds: "00" });
+
     if (this.state.buttonShow == true) {
       this.setState({ buttonShow: false });
       this.setState({ timerShow: true });
+      this.setState({ min25: true });
     } else {
       this.setState({ buttonShow: true });
       this.setState({ timerShow: false });
+      this.setState({ min25: false});
     }
+
+  }
+  hideTimeButtons5 = () => {
+    this.setState({ minutes: "00" });
+    this.setState({ seconds: "00" });
+
+    if (this.state.buttonShow == true) {
+      this.setState({ buttonShow: false });
+      this.setState({ timerShow: true });
+      this.setState({ min5: true});
+    } else {
+      this.setState({ buttonShow: true });
+      this.setState({ timerShow: false });
+      this.setState({ min5: false});
+
+      }
+  }
+    startClock = (prev) => {
+      if (this.state.min5 == true)
+      {
+        this.setState({ minutes: "5" });
+        this.setState({ seconds: "00" });
+
+
+      }
+      else if (this.state.min25 == true)
+       {
+         this.setState({ minutes: "25" });
+         this.setState({ seconds: "00" });
+      }
   };
+
   render() {
     return (
       <View>
@@ -29,7 +70,7 @@ class Timer extends React.Component {
               <Button
                 title="5 Minutes"
                 color="#BA0ED4"
-                onPress={this.hideTimeButtons}
+                onPress={this.hideTimeButtons5}
               />
             ) : null}
           </View>
@@ -39,20 +80,16 @@ class Timer extends React.Component {
               <Button
                 title="25 Minutes"
                 color="#BA0ED4"
-                onPress={this.hideTimeButtons}
+                onPress={this.hideTimeButtons25}
               />
             ) : null}
           </View>
         </View>
-        {this.state.timerShow ? (
-          <Text style={styles.timerHeader} className="timerTitle">
-            TIMER:{" "}
-          </Text>
-        ) : null}
+        {this.state.timerShow ? (<Text style={styles.timerHeader} className="timerTitle">TIMER: {this.state.minutes}:{this.state.seconds}</Text>): null}
         <View style={styles.buttonsAlter}>
-          {this.state.timerShow ? <Button title="START TIMER" /> : null}
+          {this.state.timerShow ? <Button title="START TIMER" onPress={this.startClock}/> : null}
           {this.state.timerShow ? <Button title="STOP TIMER" /> : null}
-          {this.state.timerShow ? <Button title="RESET TIMER" onPress={this.hideTimeButtons} />: null}
+          {this.state.timerShow ? <Button title="RESET TIMER" onPress={this.hideTimeButtons5} />: null}
         </View>
       </View>
     );
