@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, Button, View } from "react-native";
+import { StyleSheet, Text, Button, View, RefreshControl} from "react-native";
 import PropTypes from "prop-types";
 
 
@@ -10,8 +10,9 @@ class Timer extends React.Component {
     this.state = {
       min25: false,
       min5: false,
-      minutes: "05",
+      minutes: "00",
       seconds: "00",
+      refreshing: false,
 
       timer: null,
 
@@ -54,7 +55,7 @@ class Timer extends React.Component {
               }
 
             self.setState({
-                minutes: count.length == 0 ? '0' + count : count,
+                minutes: count.length == 1 ? '0' + count : count,
                 seconds: num.length == 1 ? '0' + num : num
             });
         }, 1000);
@@ -80,30 +81,51 @@ class Timer extends React.Component {
           minutes: '00',
           seconds: '00',
       });
-  }
 
+      this.setState({refreshing: true});
+  }
+  set5 = () => {
+    this.setState({min5: true});
+    this.setState({min25: false})
+    this.setState({
+        minutes: '05',
+        seconds: '00',
+    });
+
+
+  }
+  set25 = () => {
+    this.setState({min25: true})
+    this.setState({min5: false})
+    this.setState({
+        minutes: '25',
+        seconds: '00',
+    });
+
+
+  }
 
 
   render() {
     return (
-         <View>
+      <View>
          <View style={styles.buttonBoth}>
 
-         <View className="buttons" style={styles.button1}>
-         <Button title="5 Mins" />
-         </View>
-         <View className="buttons" style={styles.button2}>
-         <Button title="25 Mins" />
-         </View>
-         </View>
+            <View className="buttons" style={styles.button1} >
+            <Button title="5 Mins" onPress={this.set5} />
+            </View>
+
+             <View className="buttons" style={styles.button2} >
+             <Button title="25 Mins" onPress={this.set25} />
+             </View>
+
+            </View>
 
         <Text>{this.state.minutes}:{this.state.seconds}</Text>
         <Button title="Start" onPress={this.onButtonStart}/>
         <Button title="Stop" onPress={this.onButtonStop}/>
         <Button title="Clear" onPress={this.onButtonClear}/>
 
-        <View style={styles.buttonsAlter}>
-        </View>
       </View>
     );
   }
