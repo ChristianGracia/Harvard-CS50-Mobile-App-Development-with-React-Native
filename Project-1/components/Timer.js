@@ -7,7 +7,8 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state =
+    {
       min25: false,
       min5: false,
       minutes: "00",
@@ -15,6 +16,8 @@ class Timer extends React.Component {
       timer: null,
       startClock: true,
       stopClock: false,
+      startCheck: false,
+      vibrateCheck: false,
     };
     this.onButtonStart = this.onButtonStart.bind(this);
     this.onButtonStop = this.onButtonStop.bind(this);
@@ -46,9 +49,12 @@ class Timer extends React.Component {
                 {
                   num = '0';
                   count = '0'
+                  if (this.vibrateCheck){
                   vibrate();
                 }
-              }
+                }
+                }
+
 
             self.setState({
                 minutes: count.length == 1 ? '0' + count : count,
@@ -93,6 +99,7 @@ class Timer extends React.Component {
     this.setState({
         minutes: '05',
         seconds: '00',
+        startCheck: true,
     });
 
 
@@ -103,8 +110,17 @@ class Timer extends React.Component {
     this.setState({
         minutes: '25',
         seconds: '00',
+        startCheck: true,
     });
 
+  }
+  hideStart = () =>
+  {
+      if (this.state.startCheck == true) {
+        this.setState({ startCheck: true, vibrateCheck: true});
+      } else {
+        this.setState({ startCheck: false });
+      }
   }
 
 
@@ -125,11 +141,11 @@ class Timer extends React.Component {
 
             </View>
 
-        <Button title="Start" onPress={this.onButtonStart}/>
-        <Button title="Stop" onPress={this.onButtonStop}/>
-        <Button title="Clear" onPress={this.onButtonClear}/>
+             {this.state.startCheck ? <Button title="Start" onPress={this.onButtonStart} />: null}
+             <Button title="Stop" onPress={this.onButtonStop}/>
+             <Button title="Clear" onPress={this.onButtonClear}/>
+        </View>
 
-      </View>
     );
   }
 }

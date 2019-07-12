@@ -16,10 +16,8 @@ export default class App extends React.Component {
   hideButton = () => {
     if (this.state.startApp == true) {
       this.setState({ startApp: false });
-      // this.setState({clockShow: true})
     } else {
       this.setState({ startApp: true });
-      // this.setState({ clockShow: false})
     }
 
   };
