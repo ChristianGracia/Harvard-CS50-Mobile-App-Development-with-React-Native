@@ -33,7 +33,7 @@ class Timer extends React.Component {
     }
 
     start() {
-        var self = this;
+        var me = this;
         let timer = setInterval(() => {
             var num = (Number(this.state.seconds) - 1).toString()
                 count = this.state.minutes
@@ -56,7 +56,7 @@ class Timer extends React.Component {
                 }
 
 
-            self.setState({
+            me.setState({
                 minutes: count.length == 1 ? '0' + count : count,
                 seconds: num.length == 1 ? '0' + num : num
             });
@@ -65,23 +65,14 @@ class Timer extends React.Component {
     }
 
   onButtonStart = () => {
-
       this.start();
-
-      if(this.seconds == 0){
-          this.setState({refreshing: true});
-
-      }
-      else{
-      this.setState({startClock: true, stopClock: false})
-    }
-
+      this.setState({startClock: true, stopClock: false, startCheck: false})
   }
 
 
   onButtonStop = () => {
       clearInterval(this.state.timer);
-      this.setState({startClock: false, stopClock: true});
+      this.setState({startClock: false, stopClock: true, startCheck: true});
   }
 
 
@@ -90,6 +81,7 @@ class Timer extends React.Component {
           timer: null,
           minutes: '00',
           seconds: '00',
+          startCheck: false,
       });
 
   }
@@ -99,7 +91,6 @@ class Timer extends React.Component {
     this.setState({
         minutes: '05',
         seconds: '00',
-        startCheck: true,
     });
 
 
@@ -110,7 +101,6 @@ class Timer extends React.Component {
     this.setState({
         minutes: '25',
         seconds: '00',
-        startCheck: true,
     });
 
   }
