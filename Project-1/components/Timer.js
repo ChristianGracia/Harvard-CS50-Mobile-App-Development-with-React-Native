@@ -14,7 +14,7 @@ class Timer extends React.Component {
       minutes: "00",
       seconds: "00"
     };
-    this.startClock = this.startClock.bind(this)
+    this.startClock = this.startClock.bind(this);
   }
   hideTimeButtons25 = () => {
     this.setState({ minutes: "00" });
@@ -27,10 +27,9 @@ class Timer extends React.Component {
     } else {
       this.setState({ buttonShow: true });
       this.setState({ timerShow: false });
-      this.setState({ min25: false});
+      this.setState({ min25: false });
     }
-
-  }
+  };
   hideTimeButtons5 = () => {
     this.setState({ minutes: "00" });
     this.setState({ seconds: "00" });
@@ -38,27 +37,39 @@ class Timer extends React.Component {
     if (this.state.buttonShow == true) {
       this.setState({ buttonShow: false });
       this.setState({ timerShow: true });
-      this.setState({ min5: true});
+      this.setState({ min5: true });
     } else {
       this.setState({ buttonShow: true });
       this.setState({ timerShow: false });
-      this.setState({ min5: false});
+      this.setState({ min5: false });
+    }
+  };
+  startClock = prev => {
+    if (this.state.min5 == true) {
+      this.setState({ minutes: "5" });
+      this.setState({ seconds: "00" });
 
-      }
-  }
-    startClock = (prev) => {
-      if (this.state.min5 == true)
+
+      while(this.state.minutes != 0)
       {
-        this.setState({ minutes: "5" });
-        this.setState({ seconds: "00" });
-
-
+      if (this.state.seconds == 0) {
+        let timer = setInterval(()=>{this.setState({ seconds: 59})}, 1000);
       }
-      else if (this.state.min25 == true)
-       {
-         this.setState({ minutes: "25" });
-         this.setState({ seconds: "00" });
+      if (this.state.minutes !== 0 && this.state.seconds == 59) {
+        let timer = setInterval(()=>{this.setState({ minutes: this.state.minutes - 1})}, 1000);
       }
+
+      else {
+        let timer = setInterval(()=>{this.setState({ seconds: this.state.seconds - 1})}, 1000);
+          }
+          clearInterval(timer);
+   }
+}
+
+     else if (this.state.min25 == true) {
+      this.setState({ minutes: "25" });
+      this.setState({ seconds: "00" });
+    }
   };
 
   render() {
@@ -85,11 +96,19 @@ class Timer extends React.Component {
             ) : null}
           </View>
         </View>
-        {this.state.timerShow ? (<Text style={styles.timerHeader} className="timerTitle">TIMER: {this.state.minutes}:{this.state.seconds}</Text>): null}
+        {this.state.timerShow ? (
+          <Text style={styles.timerHeader} className="timerTitle">
+            TIMER: {this.state.minutes}:{this.state.seconds}
+          </Text>
+        ) : null}
         <View style={styles.buttonsAlter}>
-          {this.state.timerShow ? <Button title="START TIMER" onPress={this.startClock}/> : null}
+          {this.state.timerShow ? (
+            <Button title="START TIMER" onPress={this.startClock} />
+          ) : null}
           {this.state.timerShow ? <Button title="STOP TIMER" /> : null}
-          {this.state.timerShow ? <Button title="RESET TIMER" onPress={this.hideTimeButtons5} />: null}
+          {this.state.timerShow ? (
+            <Button title="RESET TIMER" onPress={this.hideTimeButtons5} />
+          ) : null}
         </View>
       </View>
     );
