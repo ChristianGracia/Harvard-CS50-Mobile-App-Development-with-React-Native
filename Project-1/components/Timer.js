@@ -1,4 +1,4 @@
-ct from 'react';
+import React from 'react';
 import { StyleSheet, Text, Button, View } from 'react-native';
 import PropTypes from 'prop-types';
 
@@ -24,6 +24,7 @@ class Timer extends React.Component {
     else
     {
       this.setState({buttonShow: true})
+      this.setState({timerShow: false})
     }
   }
 
@@ -40,6 +41,7 @@ class Timer extends React.Component {
       </View>
 
       {this.state.timerShow ? <Text style={styles.timerHeader}>TIMER</Text>: null}
+      {this.state.timerShow ? <Button title="STOP TIMER" onPress={this.hideTimeButtons}/>: null}
       </View>
   )
   }
@@ -56,12 +58,16 @@ const styles = StyleSheet.create({
     borderColor: '#fff',
     marginRight: 30,
     backgroundColor:'#fff',
+    borderRadius:10,
+    borderWidth: 1,
 
   },
   button2: {
     borderColor: '#fff',
     marginLeft: 30,
     backgroundColor:'#fff',
+    borderRadius:10,
+    borderWidth: 1,
   },
   timerHeader: {
     marginLeft: -50,
