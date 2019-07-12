@@ -1,7 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import Timer from "./components/Timer.js";
-import Clock from "./components/Clock.js";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,9 +15,12 @@ export default class App extends React.Component {
   hideButton = () => {
     if (this.state.startApp == true) {
       this.setState({ startApp: false });
+      // this.setState({clockShow: true})
     } else {
       this.setState({ startApp: true });
+      // this.setState({ clockShow: false})
     }
+
   };
 
   render() {
@@ -30,12 +32,12 @@ export default class App extends React.Component {
         {this.state.startApp ? <Button className="enterButton" title="Start Working" onPress={this.hideButton}  />: null}
         <View>
         {!this.state.startApp ? <Timer />: null}
+
         </View>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
