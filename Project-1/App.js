@@ -28,9 +28,9 @@ hideButton = () =>{
 render() {
   return (
     <View style={styles.container}>
-        <Text style={{fontWeight: 'bold', fontSize: 50, marginTop: 30}}>StudyCube</Text>
+        <Text style={styles.title}>StudyCube</Text>
         <Image source={require('./assets/icon.png')} style={{width: '40%', height: '30%', marginTop: 40}} />
-        <Text style={{marginTop: 30, fontSize: 22, marginBottom: 20, fontWeight: 'bold'}}>Your little productivity buddy</Text>
+        <Text style={styles.slogan}>Your little productivity buddy</Text>
         {this.state.startApp ? <Button className= "enterButton" title="Start Timer" onPress={this.hideButton} />: null}
         {!this.state.startApp ? <Timer />: null}
     </View>
@@ -45,4 +45,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontWeight: 'bold',
   },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 50,
+    marginTop: 30,
+    color: '#BA0ED4',
+  },
+  slogan: {
+    marginTop: 30,
+    fontSize: 22,
+    marginBottom: 20,
+    fontWeight: 'bold',
+    color: '#BA0ED4',
+  }
 });
