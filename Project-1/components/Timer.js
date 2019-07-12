@@ -4,16 +4,41 @@ import PropTypes from 'prop-types';
 
 
 class Timer extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state ={
+      buttonShow: true,
+      timeShow: false,
+    }
+
+  }
+
+  hideTimeButtons = () => {
+
+    if(this.state.buttonShow == true)
+    {
+      this.setState({buttonShow: false})
+      this.setState({timerShow: true})
+    }
+    else
+    {
+      this.setState({buttonShow: true})
+    }
+  }
+
   render() {
     return(
 
       <View style={styles.container}>
       <View className="buttons" style={styles.button1}>
-      <Button title="5 Minutes" color="#BA0ED4"/>
+      {this.state.buttonShow ? <Button title="5 Minutes" color="#BA0ED4" onPress={this.hideTimeButtons}/>: null}
       </View>
       <View className="buttons"style={styles.button2}>
-      <Button title= "25 minutes" color="#BA0ED4" />
+      {this.state.buttonShow ? <Button title= "25 minutes" color="#BA0ED4" onPress={this.hideTimeButtons}/>: null}
       </View>
+
+      {this.state.timerShow ? <Text>Hi</Text>: null}
       </View>
   )
   }
