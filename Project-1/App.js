@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import Timer from "./components/Timer.js";
+import  {index, vibrate }  from './utils/'
 
 export default class App extends React.Component {
   constructor(props) {

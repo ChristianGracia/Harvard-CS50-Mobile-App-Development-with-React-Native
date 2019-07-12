@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, Button, View, RefreshControl} from "react-native";
 import PropTypes from "prop-types";
-
+import  {index, vibrate }  from '../utils/'
 
 class Timer extends React.Component {
   constructor(props) {
@@ -12,26 +12,18 @@ class Timer extends React.Component {
       min5: false,
       minutes: "00",
       seconds: "00",
-      refreshing: false,
-
       timer: null,
-
       startClock: true,
       stopClock: false,
     };
-
-
     this.onButtonStart = this.onButtonStart.bind(this);
     this.onButtonStop = this.onButtonStop.bind(this);
     this.onButtonClear = this.onButtonClear.bind(this);
     this.start = this.start.bind(this);
   }
-
     componentDidMount() {
-
         this.start();
     }
-
 
     componentWillUnmount() {
         clearInterval(this.state.timer);
@@ -44,13 +36,17 @@ class Timer extends React.Component {
                 count = this.state.minutes
 
             if( Number(this.state.seconds) == 0 ) {
-                if (count > 0) {
+                if (count > 0)
+                {
 
                 count = (Number(this.state.minutes) - 1).toString();
-                  num = '59';}
-                else {
+                  num = '59';
+                }
+                else
+                {
                   num = '0';
                   count = '0'
+                  vibrate();
                 }
               }
 
@@ -65,7 +61,15 @@ class Timer extends React.Component {
   onButtonStart = () => {
 
       this.start();
+
+      if(this.seconds == 0){
+          this.setState({refreshing: true});
+
+      }
+      else{
       this.setState({startClock: true, stopClock: false})
+    }
+
   }
 
 
@@ -82,7 +86,6 @@ class Timer extends React.Component {
           seconds: '00',
       });
 
-      this.setState({refreshing: true});
   }
   set5 = () => {
     this.setState({min5: true});
@@ -102,7 +105,6 @@ class Timer extends React.Component {
         seconds: '00',
     });
 
-
   }
 
 
@@ -115,13 +117,14 @@ class Timer extends React.Component {
             <Button title="5 Mins" onPress={this.set5} />
             </View>
 
+            <Text style={styles.timeClock}>{this.state.minutes}:{this.state.seconds}</Text>
+
              <View className="buttons" style={styles.button2} >
              <Button title="25 Mins" onPress={this.set25} />
              </View>
 
             </View>
 
-        <Text>{this.state.minutes}:{this.state.seconds}</Text>
         <Button title="Start" onPress={this.onButtonStart}/>
         <Button title="Stop" onPress={this.onButtonStop}/>
         <Button title="Clear" onPress={this.onButtonClear}/>
@@ -133,14 +136,17 @@ class Timer extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'column',
+  },
+  timeCLock:{
+    fontSize: 80,
   },
   button1: {
+    marginRight: 40,
     borderColor: "#fff",
     backgroundColor: "#fff",
   },
   button2: {
+    marginLeft: 40,
     borderColor: "#fff",
     backgroundColor: "#fff",
   },
@@ -148,7 +154,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     fontWeight: "bold",
-    fontSize: 40
+    fontSize: 40,
+
+
   },
   timerHeader: {
     fontWeight: "bold",
