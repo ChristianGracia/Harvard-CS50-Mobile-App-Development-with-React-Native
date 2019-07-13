@@ -8,15 +8,27 @@ export default class Results extends React.Component {
    super(props);
 
    this.state = {
+     dataCheck: false,
+   }
+   if (this.props.navigation.state.params.data.Search){
+   this.setState({dataCheck: true})}
+   else {
+     this.setState({dataCheck: false})
    }
 }
 
+
+handleClick = () => {
+  alert('hi');
+}
   render()
-  {  return (
+  {
+     return (
       <View style={styles.container}>
       <Text style={styles.resultsHeader}>Search Results</Text>
       <Text style={styles.resultsHeader}>Query: {this.props.navigation.state.params.queryName}</Text>
-      <FlatList style={styles.movieList} data= {this.props.navigation.state.params.data.Search} renderItem={({item}) => <Text style={styles.listItems}>{item.Title}</Text> }/>
+      {this.state.dataCheck ? <Text style={styles.clickHeader}>Click a movie for more information!</Text>: <Text>No results found, try changing your query</Text> }
+      <FlatList style={styles.movieList} data= {this.props.navigation.state.params.data.Search} renderItem={({item}) => <Text onPress={this.handleClick} style={styles.listItems}>{item.Title}</Text> }/>
 
       </View>
     )
@@ -37,5 +49,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     color: 'red',
     fontSize: 20,
+  },
+  clickHeader: {
+    padding: 15,
+
   }
 })
