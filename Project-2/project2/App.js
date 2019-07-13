@@ -16,11 +16,18 @@ export default class App extends React.Component {
     return(
     <View style={styles.container}>
       <Text style={styles.titleHeader}>MovieWiki</Text>
+        <View style={styles.imageDiv}>
        <Image style={styles.imageHeader} source={require("./assets/main.png")} />
+       </View>
+
+       <View style={styles.sloganDiv}>
       <Text style={styles.searchHeader}>Search for any movie!</Text>
+      </View>
+
 
 
       <View style={styles.SearchBar}>
+      <View style={styles.submitContainer}>
       <TextInput
       style={styles.searchText}
       placeholder = "Search Here!"
@@ -30,6 +37,7 @@ export default class App extends React.Component {
       />
       <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
       </View>
+      </View>
 
 
     </View>
@@ -38,7 +46,6 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#fff',
     alignItems: "center",
     fontWeight: "bold",
@@ -48,34 +55,52 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   titleHeader: {
-    fontSize: 60,
+    fontSize: 40,
     fontWeight: 'bold',
-    marginTop: 50,
-    paddingBottom: 100,
+    backgroundColor: '#26EA20',
+    color: '#000000',
+    width: 375,
+    height: 80,
+    textAlign: 'center',
+    paddingTop: 23,
+
   },
   searchBar: {
-    marginTop: 40,
-    alignItems: 'center',
-  },
+
+  }
+  ,
   searchText: {
       height: 40,
       borderColor: 'gray',
       borderWidth: 1,
-      width: 160
+      width: 160,
   },
   submit: {
     color: 'red',
     backgroundColor: "red",
     alignItems: 'center',
-    height: 20,
-    width: 80
-
+    height: 40,
+    width: 130,
+    justifyContent: 'center',
   }
   ,
   submitText:{
-        fontWeight: 'bold',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  imageDiv: {
+    paddingTop: 100,
 
   },
-  imageHeader: {
+  sloganDiv: {
+    paddingTop: 70,
+    paddingBottom: 60
+  },
+  submitContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    padding: 20,
   }
 });
