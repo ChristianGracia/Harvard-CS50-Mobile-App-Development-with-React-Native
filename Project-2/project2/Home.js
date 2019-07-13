@@ -24,10 +24,10 @@ export default class Home extends React.Component {
 
   handleSearch = (queryName) => {
 
-    var url = 'http://www.omdbapi.com/?t=%27' + this.state.query.toLowerCase() + '%27&apikey=791727ae'
-    alert(url)
+    var url = 'http://www.omdbapi.com/?s=%27' + this.state.query.toLowerCase() + '%27&apikey=791727ae'
 
     this.setState({ typeCheck: false });
+
     fetch(url)
     .then(res => res.json()).then(res => {
       var data = res
@@ -37,7 +37,7 @@ export default class Home extends React.Component {
 
 
   }
-  changeSearch = event => {
+  changeSearch = (event) => {
     this.setState({ query: event.nativeEvent.text });
     this.setState({ typeCheck: true });
   };

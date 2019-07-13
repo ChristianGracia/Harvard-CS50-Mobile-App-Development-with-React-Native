@@ -8,6 +8,7 @@ export default class Results extends React.Component {
    super(props);
 
    this.state = {
+     query: '',
      dataCheck: false,
    }
    if (this.props.navigation.state.params.data.Search){
@@ -18,8 +19,22 @@ export default class Results extends React.Component {
 }
 
 
-handleClick = () => {
+handleClick = (event) => {
+
+  this.setState({ query: event.nativeEvent.text });
   alert('hi');
+
+  var url = 'http://www.omdbapi.com/?t=%27' + this.state.query + '%27&apikey=791727ae'
+
+
+  fetch(url)
+  .then(res => res.json()).then(res => {
+    var data = res
+      this.props.navigation.navigate('MoreInfo', { data: data});
+  }).catch()
+
+
+
 }
   render()
   {
