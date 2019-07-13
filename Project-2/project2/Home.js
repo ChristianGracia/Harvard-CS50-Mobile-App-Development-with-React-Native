@@ -27,7 +27,10 @@ export default class Home extends React.Component {
 
 
         />
-        <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.submit} onPress={
+          () => {
+          this.props.navigation.navigate('Results')}
+        }><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
         </View>
         </View>
         <Text style={styles.bottomGreen}>h</Text>
