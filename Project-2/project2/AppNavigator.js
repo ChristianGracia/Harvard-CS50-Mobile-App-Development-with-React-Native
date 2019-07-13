@@ -4,7 +4,7 @@ import Home from './Home';
 import Results from './Results';
 
 const AppNavigator = createStackNavigator({
-  Home: { screen: Home },
+  Home: { screen: Home},
   Results: { screen: Results},
 });
 

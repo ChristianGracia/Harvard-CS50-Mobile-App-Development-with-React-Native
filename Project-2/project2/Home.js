@@ -22,10 +22,10 @@ export default class Home extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handleSearch = () => {
-    this.props.navigation.navigate("Results");
+  handleSearch = (queryName) => {
+    this.props.navigation.navigate('Results', { queryName: this.state.query });
     this.setState({ typeCheck: false });
-  };
+  }
   changeSearch = event => {
     this.setState({ query: event.nativeEvent.text });
     this.setState({ typeCheck: true });
