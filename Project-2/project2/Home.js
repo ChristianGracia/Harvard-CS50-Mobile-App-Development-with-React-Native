@@ -1,9 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
-
 import AppNavigator from './AppNavigator';
 
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: '',
+
+    }
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+    handleSearch = () => {
+      this.props.navigation.navigate('Results')
+    }
+    changeSearch = (event) => {
+       this.setState({query: event.nativeEvent.text});
+    }
+
   render() {
     return (
       <View style={styles.container}>
@@ -24,13 +39,10 @@ export default class Home extends React.Component {
         style={styles.searchText}
         placeholder = "Search Here!"
         placeholderTextColor = "#000"
-
-
+        onChange = {this.changeSearch}
+        value={this.state.query}
         />
-        <TouchableOpacity style={styles.submit} onPress={
-          () => {
-          this.props.navigation.navigate('Results')}
-        }><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
+        <TouchableOpacity style={styles.submit} onPress={this.handleSearch}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
         </View>
         </View>
         <Text style={styles.bottomGreen}>h</Text>
