@@ -15,8 +15,8 @@ export default class App extends React.Component {
   render() {
     return(
     <View style={styles.container}>
-      <Text style={styles.titleHeader}>MovieWiKi</Text>
-       <Image source={require("./assets/main.png")} />
+      <Text style={styles.titleHeader}>MovieWiki</Text>
+       <Image style={styles.imageHeader} source={require("./assets/main.png")} />
       <Text style={styles.searchHeader}>Search for any movie!</Text>
 
 
@@ -28,7 +28,7 @@ export default class App extends React.Component {
       onChangeText={(text) => this.setState({text})}
       value={this.state.text}
       />
-      <TouchableOpacity><Text>Search</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
       </View>
 
 
@@ -38,26 +38,44 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     backgroundColor: '#fff',
     alignItems: "center",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   searchHeader: {
     fontSize: 20,
     fontWeight: 'bold',
   },
   titleHeader: {
-    fontSize: 50,
-    fontWeight: 'bold'
+    fontSize: 60,
+    fontWeight: 'bold',
+    marginTop: 50,
+    paddingBottom: 100,
   },
   searchBar: {
-    display: 'flex',
-    flexWrap: 'wrap'
+    marginTop: 40,
+    alignItems: 'center',
   },
   searchText: {
       height: 40,
       borderColor: 'gray',
       borderWidth: 1,
       width: 160
+  },
+  submit: {
+    color: 'red',
+    backgroundColor: "red",
+    alignItems: 'center',
+    height: 20,
+    width: 80
+
+  }
+  ,
+  submitText:{
+        fontWeight: 'bold',
+
+  },
+  imageHeader: {
   }
 });
