@@ -23,12 +23,17 @@ export default class Home extends React.Component {
   }
 
   handleSearch = (queryName) => {
-    this.props.navigation.navigate('Results', { queryName: this.state.query });
+
+    var url = 'http://www.omdbapi.com/?t=%27' + this.state.query.toLowerCase() + '%27&apikey=791727ae'
+    alert(url)
+
     this.setState({ typeCheck: false });
-    fetch('http://www.omdbapi.com/?s=' + this.state.query + '%22hi%22&apikey=791727ae')
+    fetch(url)
     .then(res => res.json()).then(res => {
-      alert(JSON.stringify(res));
+      var data = res
+        this.props.navigation.navigate('Results', { data: data, queryName: this.state.query });
     }).catch()
+
 
 
   }
