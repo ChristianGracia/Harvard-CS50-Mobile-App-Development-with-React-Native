@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
-import { StackNavigator } from 'react-navigation';
+
 import AppNavigator from './AppNavigator';
 
 export default class Home extends React.Component {
