@@ -25,6 +25,12 @@ export default class Home extends React.Component {
   handleSearch = (queryName) => {
     this.props.navigation.navigate('Results', { queryName: this.state.query });
     this.setState({ typeCheck: false });
+    fetch('http://www.omdbapi.com/?s=' + this.state.query + '%22hi%22&apikey=791727ae')
+    .then(res => res.json()).then(res => {
+      alert(JSON.stringify(res));
+    }).catch()
+
+
   }
   changeSearch = event => {
     this.setState({ query: event.nativeEvent.text });
