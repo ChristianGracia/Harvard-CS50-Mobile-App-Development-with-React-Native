@@ -31,13 +31,14 @@ export default class App extends React.Component {
       <TextInput
       style={styles.searchText}
       placeholder = "Search Here!"
-      placeholderTextColor = "#26EA20"
+      placeholderTextColor = "#000"
       onChangeText={(text) => this.setState({text})}
       value={this.state.text}
       />
       <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
       </View>
       </View>
+      <Text style={styles.bottomGreen}>h</Text>
     </View>
   );
 }}
@@ -66,7 +67,6 @@ const styles = StyleSheet.create({
   },
   titleHeader2:{
     color: '#FFFFFF',
-
   },
   searchBar: {
 
@@ -74,11 +74,11 @@ const styles = StyleSheet.create({
   ,
   searchText: {
       height: 40,
-      borderColor: 'gray',
+      borderColor: '#25EA20',
       borderWidth: 1,
       width: 190,
       paddingLeft: 10,
-      color: "#26EA20",
+      fontWeight: 'bold',
   },
   submit: {
     backgroundColor: "#26EA20",
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   },
   imageDiv: {
   paddingTop: 100,
-
+  alignItems: 'center',
   },
   sloganDiv: {
     paddingTop: 70,
@@ -109,5 +109,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     padding: 20,
+  },
+  bottomGreen: {
+    color: "#26EA20",
+    backgroundColor: '#26EA20',
+    width: 375,
+    height: 30,
+    paddingTop: 230,
+    marginTop: 100
   }
 });
