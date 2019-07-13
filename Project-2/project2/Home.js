@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import AppNavigator from './AppNavigator';
 
 export default class Home extends React.Component {
@@ -7,6 +7,7 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       query: '',
+      typeCheck: false,
 
     }
     this.handleSearch = this.handleSearch.bind(this);
@@ -14,14 +15,16 @@ export default class Home extends React.Component {
 
     handleSearch = () => {
       this.props.navigation.navigate('Results')
+      this.setState({typeCheck: false});
     }
     changeSearch = (event) => {
        this.setState({query: event.nativeEvent.text});
+       this.setState({typeCheck: true});
     }
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
         <Text style={styles.titleHeader1}><Text style={{...styles.titleHeader1, ...styles.titleHeader2}}>Movie</Text>Wiki</Text>
           <View style={styles.imageDiv}>
          <Image style={styles.imageHeader} source={require("./assets/main.png")} />
@@ -33,7 +36,7 @@ export default class Home extends React.Component {
 
 
 
-        <View style={styles.SearchBar}>
+        <View style={styles.searchBar}>
         <View style={styles.submitContainer}>
         <TextInput
         style={styles.searchText}
@@ -45,8 +48,9 @@ export default class Home extends React.Component {
         <TouchableOpacity style={styles.submit} onPress={this.handleSearch}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
         </View>
         </View>
+        {this.state.typeCheck ? <Text style={styles.query}>Find movies related to: {this.state.query}</Text>: null}
         <Text style={styles.bottomGreen}>h</Text>
-      </View>
+      </KeyboardAvoidingView>
 
     );
   }
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
     width: 375,
     height: 80,
     textAlign: 'center',
-    paddingTop: 23,
+    paddingTop: 7,
 
   },
   titleHeader2:{
@@ -104,12 +108,12 @@ const styles = StyleSheet.create({
     color: "#fff"
   },
   imageDiv: {
-  paddingTop: 100,
+  paddingTop: 80,
   alignItems: 'center',
   },
   sloganDiv: {
-    paddingTop: 70,
-    paddingBottom: 60,
+    paddingTop: 60,
+    paddingBottom: 20,
 
   },
   submitContainer: {
@@ -117,14 +121,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    padding: 20,
+    paddingTop: 40,
+    paddingBottom: 20
   },
   bottomGreen: {
     color: "#26EA20",
     backgroundColor: '#26EA20',
     width: 375,
     height: 30,
-    paddingTop: 230,
-    marginTop: 100
+    paddingTop: 100,
+    marginTop: 90
+  },
+  query: {
+    fontWeight:'bold',
+    marginTop: 20
+
   }
 });
