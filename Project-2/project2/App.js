@@ -15,7 +15,7 @@ export default class App extends React.Component {
   render() {
     return(
     <View style={styles.container}>
-      <Text style={styles.titleHeader}>MovieWiki</Text>
+      <Text style={styles.titleHeader1}><Text style={{...styles.titleHeader1, ...styles.titleHeader2}}>Movie</Text>Wiki</Text>
         <View style={styles.imageDiv}>
        <Image style={styles.imageHeader} source={require("./assets/main.png")} />
        </View>
@@ -38,8 +38,6 @@ export default class App extends React.Component {
       <TouchableOpacity style={styles.submit}><Text style={styles.submitText}>Submit</Text></TouchableOpacity>
       </View>
       </View>
-
-
     </View>
   );
 }}
@@ -51,10 +49,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   searchHeader: {
-    fontSize: 20,
+    fontSize: 27,
     fontWeight: 'bold',
+        color: '#26EA20'
   },
-  titleHeader: {
+  titleHeader1: {
     fontSize: 40,
     fontWeight: 'bold',
     backgroundColor: '#26EA20',
@@ -65,6 +64,10 @@ const styles = StyleSheet.create({
     paddingTop: 23,
 
   },
+  titleHeader2:{
+    color: '#FFFFFF',
+
+  },
   searchBar: {
 
   }
@@ -73,15 +76,17 @@ const styles = StyleSheet.create({
       height: 40,
       borderColor: 'gray',
       borderWidth: 1,
-      width: 160,
+      width: 190,
+      paddingLeft: 10
   },
   submit: {
     color: 'red',
     backgroundColor: "red",
     alignItems: 'center',
     height: 40,
-    width: 130,
+    width: 110,
     justifyContent: 'center',
+    marginLeft: 40
   }
   ,
   submitText:{
@@ -89,12 +94,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageDiv: {
-    paddingTop: 100,
+  paddingTop: 100,
 
   },
   sloganDiv: {
     paddingTop: 70,
-    paddingBottom: 60
+    paddingBottom: 60,
+
   },
   submitContainer: {
     display: 'flex',
