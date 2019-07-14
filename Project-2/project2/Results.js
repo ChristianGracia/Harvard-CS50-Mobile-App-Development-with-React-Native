@@ -8,9 +8,16 @@ export default class Results extends React.Component {
    super(props);
 
    this.state = {
-     title: ""
+     title: "",
+     dataCheck: true,
    }
+   if (this.props.navigation.state.params.data[3] == null) {
+     this.setState({dataCheck: false})
+
+   }
+
 }
+
 handleMoviePick = (item) => {
 
   var movieChoice = item.Title.replace(/\s+/g, '%20');
@@ -25,6 +32,7 @@ handleMoviePick = (item) => {
   render()
   {
 
+
      return (
 
        <View>
@@ -38,8 +46,8 @@ handleMoviePick = (item) => {
       <View style={styles.container}>
       </View>
       <View style={styles.queryDiv}>
-      <Text style={styles.resultsHeader}>Search Results</Text>
-      <Text style={styles.resultsHeader}>Query: {this.props.navigation.state.params.queryName}</Text>
+      <Text style={{...styles.resultsHeader,...styles.searchResults}}>Search Results</Text>
+      <Text style={{...styles.resultsHeader, ...styles.resultsHeader1}}>Query:<Text style={{...styles.resultsHeader,...styles.queryShow,...styles.resultsHeader1}}>   {this.props.navigation.state.params.queryName}</Text></Text>
       <Text style={styles.clickHeader}>Click a movie for more information!</Text>
       </View>
       <FlatList style={styles.movieList} data= {this.props.navigation.state.params.data.Search} renderItem={({item}) =>
@@ -71,17 +79,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  resultsHeader1: {
+    fontSize: 17,
+  },
   movieList: {
     paddingTop: 30,
   },
   listItems: {
     paddingTop: 20,
-    color: 'red',
+    color: '#26EA20',
     fontSize: 20,
     paddingLeft: 20,
   },
   clickHeader: {
     padding: 15,
+    textAlign: 'center',
 
   },
   titleHeader1: {
@@ -98,5 +110,12 @@ const styles = StyleSheet.create({
     color: "#FFFFFF"
   },
   queryDiv: {
+  },
+  queryShow: {
+    color: 'red',
+    fontSize: 20,
+  },
+  searchResults: {
+    color: '#26EA20',
   }
 })
