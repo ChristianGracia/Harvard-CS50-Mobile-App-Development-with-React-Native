@@ -8,15 +8,15 @@ export default class Results extends React.Component {
    super(props);
 
    this.state = {
-     query: '',
-     dataCheck: false,
    }
 }
 
   render()
   {
      return (
-       <Text>Hi</Text>
+       <View>
+       <Text>{this.props.navigation.state.params.data}</Text>
+       </View>
 
     )
   }
