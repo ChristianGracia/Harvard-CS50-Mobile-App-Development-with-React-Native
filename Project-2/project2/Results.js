@@ -21,8 +21,8 @@ export default class Results extends React.Component {
    }
 }
 handleMoviePick = (item) => {
-  var movieChoice = item.Title.replace(" ", "%20")
 
+  var movieChoice = item.Title.replace(/\s+/g, '%20');
   var url = 'http://www.omdbapi.com/?t=%27' + movieChoice +'%27&apikey=791727ae';
 
   fetch(url)
