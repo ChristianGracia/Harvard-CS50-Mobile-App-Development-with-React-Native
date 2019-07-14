@@ -47,7 +47,9 @@ handleMoviePick = (item) => {
       </View>
       <View style={styles.queryDiv}>
       <Text style={{...styles.resultsHeader,...styles.searchResults}}>Search Results</Text>
-      <Text style={{...styles.resultsHeader, ...styles.resultsHeader1}}>Query:<Text style={{...styles.resultsHeader,...styles.queryShow,...styles.resultsHeader1}}>   {this.props.navigation.state.params.queryName}</Text></Text>
+      <Text style={{...styles.resultsHeader, ...styles.resultsHeader1}}>Query:
+      <Text style={{...styles.resultsHeader,...styles.queryShow,...styles.resultsHeader1}}>
+      {this.props.navigation.state.params.queryName}</Text></Text>
       <Text style={styles.clickHeader}>Click a movie for more information!</Text>
       </View>
       <FlatList style={styles.movieList} data= {this.props.navigation.state.params.data.Search} renderItem={({item}) =>
