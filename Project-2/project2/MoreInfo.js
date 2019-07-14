@@ -30,12 +30,14 @@ export default class Results extends React.Component {
        <Text style={styles.header}>{this.props.navigation.state.params.data.Title}</Text>
 
        <Text style={styles.detail}>Plot: <Text style={styles.description}>{this.props.navigation.state.params.data.Plot}</Text></Text>
-       <Text>Director: {this.props.navigation.state.params.data.Director}</Text>
-       <Text>Actors: {this.props.navigation.state.params.data.Actors}</Text>
-       <Text>Year: {this.props.navigation.state.params.data.Year}</Text>
-       <Text>Genre(s): {this.props.navigation.state.params.data.Genre}</Text>
 
-       <Text>Awards: {this.props.navigation.state.params.data.Awards}</Text>
+       <View style={styles.secondaryInfoDiv}>
+       <Text style={styles.subRed}>Director: <Text style={styles.content}>{this.props.navigation.state.params.data.Director}</Text></Text>
+       <Text style={styles.subRed}>Actors: <Text style={styles.content}>{this.props.navigation.state.params.data.Actors}</Text></Text>
+       <Text style={styles.subRed}>Year: <Text style={styles.content}>{this.props.navigation.state.params.data.Year}</Text></Text>
+       <Text style={styles.subRed}>Genre(s): <Text style={styles.content}>{this.props.navigation.state.params.data.Genre}</Text></Text>
+       <Text style={styles.subRed}>Awards: <Text style={styles.content}>{this.props.navigation.state.params.data.Awards}</Text></Text>
+       </View>
 
 
        </View>
@@ -56,8 +58,11 @@ const styles = StyleSheet.create({
   },
   detail: {
     fontSize: 23,
-    color: 'red',
+    color: '#26EA20',
     paddingBottom: 20,
+    fontWeight: 'bold',
+    width: 360,
+    textAlign: 'center',
   },
   description: {
     color: 'black',
@@ -75,4 +80,15 @@ const styles = StyleSheet.create({
   },
   titleHeader2: {
     color: "#FFFFFF",
+},
+subRed:{
+  color: "#26EA20",
+  fontSize: 20,
+},
+content: {
+  color: "#000",
+  fontSize: 15,
+},
+secondaryInfoDiv: {
+  padding: 20,
 }})

@@ -24,7 +24,9 @@ export default class Home extends React.Component {
 
   handleSearch = (queryName) => {
 
-    var url = 'http://www.omdbapi.com/?s=%27' + this.state.query.toLowerCase() + '%27&apikey=791727ae'
+    var queryTitle = this.state.query.replace(/\s+/g, '%20');
+
+    var url = 'http://www.omdbapi.com/?s=%27' + queryTitle + '%27&apikey=791727ae'
 
     this.setState({ typeCheck: false });
 
@@ -57,10 +59,7 @@ export default class Home extends React.Component {
             source={require("./assets/main.png")}
           />
           {this.state.typeCheck ? (
-            <Text style={styles.query}>
-              Find movies related to: {this.state.query}
-            </Text>
-          ) : null}
+            <Text style={styles.query}>Find movies related to:      <Text style={{...styles.query1,...styles.query}}>{this.state.query}</Text></Text>) : null}
         </View>
 
         <View style={styles.sloganDiv}>
@@ -162,5 +161,8 @@ const styles = StyleSheet.create({
   query: {
     fontWeight: "bold",
     marginTop: 20
+  },
+  query1: {
+    color: "#26EA20",
   }
 });
