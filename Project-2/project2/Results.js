@@ -8,16 +8,7 @@ export default class Results extends React.Component {
    super(props);
 
    this.state = {
-     dataCheck: false,
      title: ""
-   }
-
-   if (this.props.navigation.state.params.data.Search)
-   {
-   this.setState({dataCheck: true})}
-   else
-   {
-     this.setState({dataCheck: false})
    }
 }
 handleMoviePick = (item) => {
@@ -31,15 +22,26 @@ handleMoviePick = (item) => {
       this.props.navigation.navigate('MoreInfo', { data: data});
   }).catch()
 }
-
   render()
   {
 
      return (
+
+       <View>
+       <Text style={styles.titleHeader1}>
+         <Text style={{ ...styles.titleHeader1, ...styles.titleHeader2 }}>
+           Movie
+         </Text>
+         Wiki
+       </Text>
+
       <View style={styles.container}>
+      </View>
+      <View style={styles.queryDiv}>
       <Text style={styles.resultsHeader}>Search Results</Text>
       <Text style={styles.resultsHeader}>Query: {this.props.navigation.state.params.queryName}</Text>
-      {this.state.dataCheck ? <Text style={styles.clickHeader}>Click a movie for more information!</Text>: <Text>No results found, try changing your query</Text> }
+      <Text style={styles.clickHeader}>Click a movie for more information!</Text>
+      </View>
       <FlatList style={styles.movieList} data= {this.props.navigation.state.params.data.Search} renderItem={({item}) =>
 
 
@@ -64,8 +66,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   resultsHeader: {
+    paddingTop: 20,
     fontSize: 23,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   movieList: {
     paddingTop: 30,
@@ -74,9 +78,25 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     color: 'red',
     fontSize: 20,
+    paddingLeft: 20,
   },
   clickHeader: {
     padding: 15,
 
+  },
+  titleHeader1: {
+    fontSize: 40,
+    fontWeight: "bold",
+    backgroundColor: "#26EA20",
+    color: "#000000",
+    width: 375,
+    height: 80,
+    textAlign: "center",
+    paddingTop: 7
+  },
+  titleHeader2: {
+    color: "#FFFFFF"
+  },
+  queryDiv: {
   }
 })
