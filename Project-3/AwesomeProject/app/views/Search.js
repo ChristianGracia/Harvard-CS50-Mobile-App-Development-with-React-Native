@@ -5,7 +5,9 @@ class Search extends Component {
  render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.searchPageText}>Search</Text>
+      <View style={styles.headerDiv}>
+        <Text style={styles.header}>Search</Text>
+        </View>
         <View style={styles.searchContainer}>
         <TextInput style={styles.searchBar} placeholder="Type here!" placeholderTextColor="#bedaf7"/>
         <TouchableOpacity style={styles.submit}>
@@ -21,12 +23,16 @@ const styles = StyleSheet.create({
   container:{
     backgroundColor: "#bedaf7"
   },
-  searchPageText: {
+  headerDiv:{
+    backgroundColor: '#1666ba',
+    height: 90
+  },
+  header: {
     fontSize: 50,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 30,
-    color: '#1666ba',
+    color: '#deecfb',
+    marginTop: 15,
   },
   searchBar: {
     height: 40,
