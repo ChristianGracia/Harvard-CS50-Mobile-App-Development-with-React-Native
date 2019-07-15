@@ -6,7 +6,7 @@ class Crypto extends Component {
     return (
       <ScrollView style={styles.container}>
       <View style={styles.headerDiv}>
-        <Text style={styles.header}>Crypto</Text>
+        <Text style={styles.header}>Top Ten</Text>
         </View>
       </ScrollView>
     );

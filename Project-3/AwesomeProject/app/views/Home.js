@@ -6,7 +6,7 @@ class Home extends Component {
     return (
         <ScrollView style={styles.container}>
           <View style={styles.headerDiv}>
-          <Text style={styles.header}>Welcome</Text>
+          <Text style={styles.header}>KRYPTO</Text>
           </View>
         </ScrollView>
     );

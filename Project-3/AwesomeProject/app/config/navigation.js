@@ -12,7 +12,7 @@ export const BottomTab = TabNavigator({
   Search: {
     screen: Search,
   },
-  Crypto: {
+  Markets: {
     screen: Crypto,
   }
 }, {

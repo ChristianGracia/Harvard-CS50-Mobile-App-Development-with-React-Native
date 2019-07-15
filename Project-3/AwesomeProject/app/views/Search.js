@@ -8,11 +8,21 @@ class Search extends Component {
       <View style={styles.headerDiv}>
         <Text style={styles.header}>Search</Text>
         </View>
+
+
+        <View style={styles.lookUpDiv}>
+        <Text style={styles.lookUpText}>Look up any coin!</Text>
+        </View>
+
         <View style={styles.searchContainer}>
-        <TextInput style={styles.searchBar} placeholder="Type here!" placeholderTextColor="#bedaf7"/>
+
+        <TextInput style={styles.searchBar} placeholder="Type here!" placeholderTextColor="#368ce7"/>
         <TouchableOpacity style={styles.submit}>
             <Text style={styles.submitText}>Submit</Text>
           </TouchableOpacity>
+         </View>
+         <View style={styles.instructionDiv}>
+         <Text style={styles.instruction}>Use the abbreviation (BTC, LTC, ETH, ENG, etc.)</Text>
          </View>
       </ScrollView>
     );
@@ -37,7 +47,7 @@ const styles = StyleSheet.create({
   searchBar: {
     height: 40,
     borderColor: "#000",
-    backgroundColor: "#fff",
+    backgroundColor: "#deecfb",
     borderWidth: 1,
     width: 190,
     paddingLeft: 10,
@@ -49,8 +59,8 @@ const styles = StyleSheet.create({
      justifyContent: "center",
      alignItems: "center",
      flexDirection: "row",
-     paddingTop: 80,
-     marginTop: 100,
+     paddingTop: 40
+
    },
    submitText: {
    fontWeight: "bold",
@@ -65,6 +75,30 @@ const styles = StyleSheet.create({
   width: 110,
   justifyContent: "center",
   marginLeft: 40,
+},
+lookUpText: {
+  textAlign: 'center',
+  fontSize: 30,
+  color: '#1666ba',
+  fontWeight: 'bold',
+  paddingBottom: 20
+
+},
+lookUpDiv: {
+  paddingTop: 50,
+  marginTop: 80,
+
+},
+instruction: {
+  paddingTop: 50,
+  color: '#1666ba',
+  fontSize: 12,
+  fontWeight: 'bold',
+},
+instructionDiv: {
+  paddingTop: 30,
+  textAlign: 'center',
+  alignItems: 'center'
 }
 })
 
