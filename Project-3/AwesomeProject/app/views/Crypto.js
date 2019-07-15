@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
 
   },
+
 });
 
 export default Crypto;
