@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
   titleHeader2: {
     color: "#FFFFFF"
   },
-  searchBar: {},
   searchText: {
     height: 40,
     borderColor: "#25EA20",
