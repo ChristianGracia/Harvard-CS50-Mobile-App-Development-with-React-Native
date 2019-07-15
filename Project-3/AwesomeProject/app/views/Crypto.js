@@ -1,12 +1,12 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import { ScrollView, Text, StyleSheet } from 'react-native';
 
-class Home extends Component {
+class Crypto extends Component {
  render() {
     return (
-        <ScrollView style={styles.container}>
-          <Text style={styles.header}>Welcome</Text>
-        </ScrollView>
+      <ScrollView style={styles.container}>
+        <Text style={styles.header}>Crypto</Text>
+      </ScrollView>
     );
   }
 }
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Crypto;

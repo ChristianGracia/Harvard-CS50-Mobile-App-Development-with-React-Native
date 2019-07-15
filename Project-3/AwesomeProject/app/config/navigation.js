@@ -2,26 +2,28 @@ import React from "react";
 import { TabNavigator } from "react-navigation";
 
 import Home from '../views/Home';
-import First from '../views/First';
-import Second from '../views/Second';
+import Crypto from '../views/Crypto';
+import Search from '../views/Search';
 
 export const BottomTab = TabNavigator({
   Home: {
     screen: Home,
   },
-  First: {
-    screen: First,
+  Search: {
+    screen: Search,
   },
-  Second: {
-    screen: Second,
+  Crypto: {
+    screen: Crypto,
   }
 }, {
   tabBarPosition: 'bottom',
   swipeEnabled: true,
   tabBarOptions: {
-    activeTintColor: '#f2f2f2',
-    activeBackgroundColor: "#2EC4B6",
-    inactiveTintColor: '#666',
+    activeTintColor: '#deecfb',
+    activeBackgroundColor: "#1666ba",
+    inactiveTintColor: '#deecfb',
+    inactiveBackgroundColor: "#368ce7",
+
     labelStyle: {
       fontSize: 22,
       marginTop: -20,
