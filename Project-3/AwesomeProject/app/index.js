@@ -8,12 +8,15 @@ import thunk from "redux-thunk";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      name: ''
+      btcPrice: 0,
+      ethPrice: 0,
+      ltcPrice: 0
     }
   }
 
