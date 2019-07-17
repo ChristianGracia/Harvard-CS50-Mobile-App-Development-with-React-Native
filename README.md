@@ -5,17 +5,17 @@ You can see me get more familar with react-native as I went through these
 
 
 
-- Project 0 Todo Site AJAX                      -- [**X**]
+- Project 0 Todo Site AJAX -- [**X**]
 
 
 
-- Project 1 Timer app React Native              -- [**X**]
+- Project 1 Timer app React Native -- [**X**]
 
 
 
-- Project 2 Movie Search App React Native       -- [**X**]
+- Project 2 Movie Search App React Native -- [**X**]
 
 
 
-- Project 3 Crypto Finance App React Native     -- [ ] 
+- Project 3 Crypto Finance App React Native -- [ ] 
 
