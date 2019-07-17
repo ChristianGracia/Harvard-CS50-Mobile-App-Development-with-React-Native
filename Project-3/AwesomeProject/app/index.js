@@ -16,7 +16,7 @@ export default class App extends React.Component {
     this.state = {
       btcPrice: 0,
       ethPrice: 0,
-      ltcPrice: 0
+      ltcPrice: 0,
     }
   }
 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, ScrollView, Text, StyleSheet } from 'react-native';
+import { View, ScrollView, Text, StyleSheet, Button } from 'react-native';
 
 class Crypto extends Component {
  render() {
@@ -7,6 +7,8 @@ class Crypto extends Component {
       <ScrollView style={styles.container}>
       <View style={styles.headerDiv}>
         <Text style={styles.header}>Top Ten</Text>
+        <Text>{this.props.count}</Text>
+        <Button onPress={this.increment} title="Click" />
         </View>
       </ScrollView>
     );
