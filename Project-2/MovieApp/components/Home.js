@@ -10,7 +10,6 @@ import {
   Platform
 } from "react-native";
 import { StackNavigator, Header } from 'react-navigation';
-import AppNavigator from "./AppNavigator";
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -56,7 +55,7 @@ export default class Home extends React.Component {
         <View style={styles.imageDiv}>
           <Image
             style={styles.imageHeader}
-            source={require("./assets/main.png")}
+            source={require("../assets/main.png")}
           />
           {this.state.typeCheck ? (
             <Text style={styles.query}>Find movies related to:      <Text style={{...styles.query1,...styles.query}}>{this.state.query}</Text></Text>) : null}
@@ -112,6 +111,7 @@ const styles = StyleSheet.create({
   titleHeader2: {
     color: "#FFFFFF"
   },
+  searchBar: {},
   searchText: {
     height: 40,
     borderColor: "#25EA20",

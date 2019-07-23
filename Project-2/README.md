@@ -7,6 +7,4 @@ of movies that match the query, then the user can select any of the listed movie
 genre, director, plot, actors, year released, etc.
 
 ## Installation
-I'll post installation instructions after I finish cs50m and clean up the files (folder organization) and maybe add more features.
-
-
+Install by downloading the folder, run NPM Install and then run using Expo and Android Studio.
